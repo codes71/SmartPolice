@@ -32,31 +32,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
 
-            <ImageView
-                android:id="@+id/imageNotice"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="10dp"
-                app:srcCompat="@drawable/ic_tip"
-                tools:ignore="ContentDescription" />
+<!--            <ImageView-->
+<!--                android:id="@+id/imageNotice"-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_alignParentTop="true"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                app:srcCompat="@drawable/ic_tip"-->
+<!--                tools:ignore="ContentDescription" />-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/imageNotice"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="We offer SDKs for face recognition, liveness detection, and ID card recognition."></TextView>
-        </RelativeLayout>
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_toRightOf="@+id/imageNotice"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:text="We offer SDKs for face recognition, liveness detection, and ID card recognition."></TextView>-->
+<!--        </RelativeLayout>-->
 
     </androidx.cardview.widget.CardView>
 
@@ -66,7 +66,8 @@
        android:orientation="horizontal"
        android:layout_width="match_parent"
        android:layout_margin="16dp"
-       android:layout_height="wrap_content">
+       android:layout_height="wrap_content"
+       >
 
        <Button
            android:id="@+id/buttonEnroll"
@@ -83,21 +84,21 @@
            style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Primary"
            android:layout_width="0dp"
            android:layout_height="48dp"
-           android:text="Identify"
-           android:layout_weight="0.5"
            android:layout_marginLeft="10dp"
-           app:icon="@drawable/ic_person_search"/>
+           android:layout_weight="0.5"
+           android:text="Identify"
+           app:icon="@drawable/ic_person_search" />
    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/lytButtons2"
-        app:layout_constraintTop_toBottomOf="@+id/lytButtons1"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="274dp"
+        android:layout_height="49dp"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lytButtons1">
 
         <Button
             android:id="@+id/buttonSettings"
@@ -109,15 +110,15 @@
             android:text="Settings"
             app:icon="@drawable/ic_settings" />
 
-        <Button
-            android:id="@+id/buttonAbout"
-            style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Primary"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0.5"
-            android:text="About"
-            app:icon="@drawable/ic_about" />
+        <!--        <Button-->
+        <!--            android:id="@+id/buttonAbout"-->
+        <!--            style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Primary"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="48dp"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:layout_weight="0.5"-->
+        <!--            android:text="About"-->
+        <!--            app:icon="@drawable/ic_about" />-->
     </LinearLayout>
 
     <LinearLayout
@@ -130,14 +131,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         >
 
-        <ImageView
-            android:id="@+id/imageBrand"
-            android:layout_width="100dp"
-            android:layout_height="25dp"
-            android:layout_marginBottom="10dp"
-            app:srcCompat="@drawable/ic_kby"
-            >
-        </ImageView>
+<!--        <ImageView-->
+<!--            android:id="@+id/imageBrand"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            app:srcCompat="@drawable/ic_kby"-->
+<!--            >-->
+<!--        </ImageView>-->
 
     </LinearLayout>
 
