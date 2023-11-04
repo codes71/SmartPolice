@@ -23,10 +23,14 @@ class ResultActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.imageEnrolled).setImageBitmap(enrolledFace)
         findViewById<ImageView>(R.id.imageIdentified).setImageBitmap(identifiedFace)
         findViewById<TextView>(R.id.textPerson).text = "Name: " + identifiedName
-//        findViewById<TextView>(R.id.textSimilarity).text = "Similarity: " + similarity
-//        findViewById<TextView>(R.id.textLiveness).text = "Liveness score: " + livenessScore
-//        findViewById<TextView>(R.id.textYaw).text = "Yaw: " + yaw
-//        findViewById<TextView>(R.id.textRoll).text = "Roll: " + roll
-//        findViewById<TextView>(R.id.textPitch).text = "Pitch: " + pitch
+        findViewById<TextView>(R.id.textSimilarity).text = "Date Of Arrest: "
+        findViewById<TextView>(R.id.textLiveness).text = "Location of Arrest: "
+        findViewById<TextView>(R.id.textYaw).text = "Charges:"
+        findViewById<TextView>(R.id.textRoll).text = "Court Records: "
+        findViewById<TextView>(R.id.textPitch).text = "Case Disposition: "
+        findViewById<TextView>(R.id.textPitch).text = "Incarceration History: "
+        findViewById<TextView>(R.id.textPitch).text = "Criminal History: "
+        findViewById<TextView>(R.id.textPitch).text = "Warrants: "
+
     }
 }
