@@ -11,7 +11,7 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        val identifyedFace = intent.getParcelableExtra("identified_face") as? Bitmap
+        val identifiedFace = intent.getParcelableExtra("identified_face") as? Bitmap
         val enrolledFace = intent.getParcelableExtra("enrolled_face") as? Bitmap
         val identifiedName = intent.getStringExtra("identified_name")
         val similarity = intent.getFloatExtra("similarity", 0f)
@@ -21,8 +21,8 @@ class ResultActivity : AppCompatActivity() {
         val pitch = intent.getFloatExtra("pitch", 0f)
 
         findViewById<ImageView>(R.id.imageEnrolled).setImageBitmap(enrolledFace)
-        findViewById<ImageView>(R.id.imageIdentified).setImageBitmap(identifyedFace)
-        findViewById<TextView>(R.id.textPerson).text = "Identified: " + identifiedName
+        findViewById<ImageView>(R.id.imageIdentified).setImageBitmap(identifiedFace)
+        findViewById<TextView>(R.id.textPerson).text = "Name: " + identifiedName
 //        findViewById<TextView>(R.id.textSimilarity).text = "Similarity: " + similarity
 //        findViewById<TextView>(R.id.textLiveness).text = "Liveness score: " + livenessScore
 //        findViewById<TextView>(R.id.textYaw).text = "Yaw: " + yaw

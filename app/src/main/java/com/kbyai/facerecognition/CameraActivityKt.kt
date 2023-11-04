@@ -2,18 +2,23 @@ package com.kbyai.facerecognition
 
 import android.Manifest
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Size
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.kbyai.facerecognition.SettingsActivity.Companion.getIdentifyThreshold
 import com.kbyai.facerecognition.SettingsActivity.Companion.getLivenessLevel
-import com.kbyai.facerecognition.SettingsActivity.Companion.getLivenessThreshold
 import com.kbyai.facesdk.FaceDetectionParam
 import com.kbyai.facesdk.FaceSDK
 import io.fotoapparat.Fotoapparat
@@ -22,6 +27,7 @@ import io.fotoapparat.preview.Frame
 import io.fotoapparat.preview.FrameProcessor
 import io.fotoapparat.selector.front
 import io.fotoapparat.view.CameraView
+
 
 class CameraActivityKt : AppCompatActivity() {
 
@@ -35,6 +41,7 @@ class CameraActivityKt : AppCompatActivity() {
     private lateinit var context: Context
 
     private var recognized = false
+    private lateinit var resultText : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,6 +96,25 @@ class CameraActivityKt : AppCompatActivity() {
                 fotoapparat.start()
             }
         }
+    }
+    protected fun showInputDialog() {
+
+        // get prompts.xml view
+        val layoutInflater = LayoutInflater.from(this@CameraActivityKt)
+        val promptView: View = layoutInflater.inflate(R.layout.dialoglayout, null)
+        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this@CameraActivityKt)
+        alertDialogBuilder.setView(promptView)
+        val editText = promptView.findViewById<View>(R.id.nameedittext) as EditText
+        // setup a dialog window
+        alertDialogBuilder.setCancelable(false)
+            .setPositiveButton("OK",
+                DialogInterface.OnClickListener { dialog, id -> resultText.setText("Hello, " + editText.text) })
+            .setNegativeButton("Cancel",
+                DialogInterface.OnClickListener { dialog, id -> dialog.cancel() })
+
+        // create an alert dialog
+        val alert: AlertDialog = alertDialogBuilder.create()
+        alert.show()
     }
 
     inner class FaceFrameProcessor : FrameProcessor {

@@ -12,7 +12,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="HAYAT VERIFICATION"
+        android:text="Criminal Record Detections"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="-102dp">
