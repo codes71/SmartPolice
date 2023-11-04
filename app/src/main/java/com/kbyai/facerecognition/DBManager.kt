@@ -8,6 +8,8 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import java.io.ByteArrayOutputStream
 
+
+
 class DBManager(context: Context?) : SQLiteOpenHelper(context, "mydb", null, 1) {
     override fun onCreate(db: SQLiteDatabase) {
         // TODO Auto-generated method stub

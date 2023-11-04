@@ -32,10 +32,10 @@ class SettingsActivity : AppCompatActivity() {
         fun getCameraLens(context: Context): Int {
             val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
             val cameraLens = sharedPreferences.getString("camera_lens", SettingsActivity.DEFAULT_CAMERA_LENS)
-            if(cameraLens == "back") {
-                return CameraSelector.LENS_FACING_BACK
+            return if(cameraLens == "back") {
+                CameraSelector.LENS_FACING_BACK
             } else {
-                return CameraSelector.LENS_FACING_FRONT
+                CameraSelector.LENS_FACING_FRONT
             }
         }
 

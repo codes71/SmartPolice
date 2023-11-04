@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Size
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.core.app.ActivityCompat
@@ -47,7 +48,7 @@ class CameraActivityKt : AppCompatActivity() {
             .into(cameraView)
             .lensPosition(front())
             .frameProcessor(FaceFrameProcessor())
-            .previewResolution { Resolution(PREVIEW_HEIGHT,PREVIEW_WIDTH) }
+            .previewResolution { Resolution(PREVIEW_HEIGHT, PREVIEW_WIDTH) }
             .build()
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
@@ -94,16 +95,17 @@ class CameraActivityKt : AppCompatActivity() {
 
         override fun process(frame: Frame) {
 
-            if(recognized == true) {
+            if (recognized == true) {
                 return
             }
 
             var cameraMode = 7
             if (SettingsActivity.getCameraLens(context) == CameraSelector.LENS_FACING_BACK) {
-                cameraMode = 6
+                cameraMode = 8
             }
 
-            val bitmap = FaceSDK.yuv2Bitmap(frame.image, frame.size.width, frame.size.height, cameraMode)
+            val bitmap =
+                FaceSDK.yuv2Bitmap(frame.image, frame.size.width, frame.size.height, cameraMode)
 
             val faceDetectionParam = FaceDetectionParam()
             faceDetectionParam.check_liveness = true
@@ -115,39 +117,45 @@ class CameraActivityKt : AppCompatActivity() {
                 faceView.setFaceBoxes(faceBoxes)
             }
 
-            if(faceBoxes.size > 0) {
-                val faceBox = faceBoxes[0]
-                if (faceBox.liveness > SettingsActivity.getLivenessThreshold(context)) {
-                    val templates = FaceSDK.templateExtraction(bitmap, faceBox)
+            if (faceBoxes.size > 0) {
+                if (faceBoxes.size == 1) {
+                    val faceBox = faceBoxes[0]
+                    if (faceBox.liveness > SettingsActivity.getLivenessThreshold(context)) {
+                        val templates = FaceSDK.templateExtraction(bitmap, faceBox)
 
-                    var maxSimiarlity = 0f
-                    var maximiarlityPerson: Person? = null
-                    for (person in DBManager.personList) {
-                        val similarity = FaceSDK.similarityCalculation(templates, person.templates)
-                        if (similarity > maxSimiarlity) {
-                            maxSimiarlity = similarity
-                            maximiarlityPerson = person
+                        var maxSimiarlity = 0f
+                        var maximiarlityPerson: Person? = null
+                        for (person in DBManager.personList) {
+                            val similarity =
+                                FaceSDK.similarityCalculation(templates, person.templates)
+                            if (similarity > maxSimiarlity) {
+                                maxSimiarlity = similarity
+                                maximiarlityPerson = person
+                            }
+                        }
+                        if (maxSimiarlity > SettingsActivity.getIdentifyThreshold(context)) {
+                            recognized = true
+                            val identifiedPerson = maximiarlityPerson
+                            val identifiedSimilarity = maxSimiarlity
+
+                            runOnUiThread {
+                                val faceImage = Utils.cropFace(bitmap, faceBox)
+                                val intent = Intent(context, ResultActivity::class.java)
+                                intent.putExtra("identified_face", faceImage)
+                                intent.putExtra("enrolled_face", identifiedPerson!!.face)
+                                intent.putExtra("identified_name", identifiedPerson!!.name)
+                                intent.putExtra("similarity", identifiedSimilarity)
+                                intent.putExtra("liveness", faceBox.liveness)
+                                intent.putExtra("yaw", faceBox.yaw)
+                                intent.putExtra("roll", faceBox.roll)
+                                intent.putExtra("pitch", faceBox.pitch)
+                                startActivity(intent)
+                            }
                         }
                     }
-                    if (maxSimiarlity > SettingsActivity.getIdentifyThreshold(context)) {
-                        recognized = true
-                        val identifiedPerson = maximiarlityPerson
-                        val identifiedSimilarity = maxSimiarlity
-
-                        runOnUiThread {
-                            val faceImage = Utils.cropFace(bitmap, faceBox)
-                            val intent = Intent(context, ResultActivity::class.java)
-                            intent.putExtra("identified_face", faceImage)
-                            intent.putExtra("enrolled_face", identifiedPerson!!.face)
-                            intent.putExtra("identified_name", identifiedPerson!!.name)
-                            intent.putExtra("similarity", identifiedSimilarity)
-                            intent.putExtra("liveness", faceBox.liveness)
-                            intent.putExtra("yaw", faceBox.yaw)
-                            intent.putExtra("roll", faceBox.roll)
-                            intent.putExtra("pitch", faceBox.pitch)
-                            startActivity(intent)
-                        }
-                    }
+                }
+                else if (faceBoxes.size > 1){
+                    Toast.makeText(this@CameraActivityKt, getString(R.string.multiple_face_detected), Toast.LENGTH_SHORT).show()
                 }
             }
         }

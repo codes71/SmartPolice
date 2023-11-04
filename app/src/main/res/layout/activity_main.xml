@@ -10,11 +10,12 @@
         android:id="@+id/textTitle"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:gravity="center"
-        android:text="Face Recognition"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent">
+        android:gravity="center"
+        android:text="HAYAT VERIFICATION"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-102dp">
 
     </TextView>
 
@@ -76,7 +77,7 @@
            android:layout_height="48dp"
            android:layout_marginRight="10dp"
            android:layout_weight="0.5"
-           android:text="Enroll"
+           android:text="Add People"
            app:icon="@drawable/ic_register" />
 
        <Button
@@ -87,6 +88,8 @@
            android:layout_marginLeft="10dp"
            android:layout_weight="0.5"
            android:text="Identify"
+           android:textColorHighlight="#820E0E"
+           android:textColorLink="#A24D4D"
            app:icon="@drawable/ic_person_search" />
    </LinearLayout>
 

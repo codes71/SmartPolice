@@ -9,7 +9,7 @@
     <string name="reset">Reset</string>
 
     <!-- Messages Preferences -->
-    <string name="camera_lens">Camera lens</string>
+    <string name="camera_lens">Default Camera lens</string>
     <string name="liveness_threshold">Liveness threshold</string>
     <string name="liveness_level">Liveness Level</string>
     <string name="identify_threshold">Identify threshold</string>

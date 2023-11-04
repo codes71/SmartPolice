@@ -1,4 +1,4 @@
-plugins {
+    plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
@@ -45,6 +45,7 @@ dependencies {
     implementation "androidx.camera:camera-camera2:1.0.0-beta12"
     implementation "androidx.camera:camera-lifecycle:1.0.0-beta12"
     implementation 'androidx.camera:camera-view:1.0.0-alpha19'
+    implementation("io.appwrite:appwrite-kotlin:0.5.0")
 
     implementation 'io.fotoapparat:fotoapparat:2.7.0'
 

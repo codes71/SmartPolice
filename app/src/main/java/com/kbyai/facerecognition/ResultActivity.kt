@@ -23,10 +23,10 @@ class ResultActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.imageEnrolled).setImageBitmap(enrolledFace)
         findViewById<ImageView>(R.id.imageIdentified).setImageBitmap(identifyedFace)
         findViewById<TextView>(R.id.textPerson).text = "Identified: " + identifiedName
-        findViewById<TextView>(R.id.textSimilarity).text = "Similarity: " + similarity
-        findViewById<TextView>(R.id.textLiveness).text = "Liveness score: " + livenessScore
-        findViewById<TextView>(R.id.textYaw).text = "Yaw: " + yaw
-        findViewById<TextView>(R.id.textRoll).text = "Roll: " + roll
-        findViewById<TextView>(R.id.textPitch).text = "Pitch: " + pitch
+//        findViewById<TextView>(R.id.textSimilarity).text = "Similarity: " + similarity
+//        findViewById<TextView>(R.id.textLiveness).text = "Liveness score: " + livenessScore
+//        findViewById<TextView>(R.id.textYaw).text = "Yaw: " + yaw
+//        findViewById<TextView>(R.id.textRoll).text = "Roll: " + roll
+//        findViewById<TextView>(R.id.textPitch).text = "Pitch: " + pitch
     }
 }
