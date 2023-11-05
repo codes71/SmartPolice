@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "471988002797",
+    "project_id": "login-ui-3c9b3",
+    "storage_bucket": "login-ui-3c9b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471988002797:android:b783cb5fc922c27d2c11e4",
+        "android_client_info": {
+          "package_name": "com.example.demo.learning.login_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471988002797-hv6da3fv1d2ihvmii9rsttssd4cb7cnn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVwE3wu8spStB7h4o8Iqp5ta4k8n0jUq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471988002797-hv6da3fv1d2ihvmii9rsttssd4cb7cnn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
