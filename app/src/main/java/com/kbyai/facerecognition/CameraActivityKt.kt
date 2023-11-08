@@ -98,8 +98,7 @@ class CameraActivityKt : AppCompatActivity() {
         }
     }
     protected fun showInputDialog() {
-
-        // get prompts.xml view
+// get Prompts.xml view
         val layoutInflater = LayoutInflater.from(this@CameraActivityKt)
         val promptView: View = layoutInflater.inflate(R.layout.dialoglayout, null)
         val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this@CameraActivityKt)
@@ -180,6 +179,7 @@ class CameraActivityKt : AppCompatActivity() {
                         }
                     }
                 }
+                
                 else if (faceBoxes.size > 1){
                     Toast.makeText(this@CameraActivityKt, getString(R.string.multiple_face_detected), Toast.LENGTH_SHORT).show()
                 }
