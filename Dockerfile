@@ -1,3 +1,5 @@
+# - Android Directory 
+
 # Use a base image with Kotlin and Java already installed
 FROM openjdk:11-jre-slim
 
